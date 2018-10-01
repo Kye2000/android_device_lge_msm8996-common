@@ -1,3 +1,8 @@
+# AOD
+/system/vendor/bin/hw/vendor\.lge\.hardware\.aod\.aodcommon@1\.0-service   u:object_r:vendor_file:s0
+/system/vendor/bin/hw/vendor\.lge\.hardware\.aod\.aodpower@1\.0-service    u:object_r:vendor_file:s0
+/system/vendor/bin/hw/vendor\.lge\.hardware\.aod\.aodview@1\.0-service     u:object_r:vendor_file:s0
+
 # Bluetooth
 /(vendor|system/vendor)/bin/hwaddrs                                 u:object_r:hwaddrs_exec:s0
 /sys/devices/bluesleep/rfkill/rfkill0/state                         u:object_r:sysfs_bluetooth_writable:s0
