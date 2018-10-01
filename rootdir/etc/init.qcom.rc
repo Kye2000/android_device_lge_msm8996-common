@@ -304,6 +304,20 @@ on post-fs-data
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
+    # Always on Display
+    chown system system /sys/class/graphics/fb0/aod
+    chmod 664 /sys/class/graphics/fb0/aod
+    chown system system /sys/class/graphics/fb0/keep_aod
+    chmod 664 /sys/class/graphics/fb0/keep_aod
+    chown system system /sys/class/graphics/fb0/cur_panel_mode
+    chown system sytem  /sys/class/graphics/fb1/cur_panel_mode
+    chmod 644 /sys/class/graphics/fb1/cur_panel_mode
+    chmod 644 /sys/class/graphics/fb0/cur_panel_mode
+    chown system system /sys/class/leds/lcd-backlight-ex/brightness
+    chmod 664 /sys/class/leds/lcd-backlight-ex/brightness
+    chown system system /system/bin/AODLayer
+    chmod 664 /system/bin/AODLayer
+
     #create port-bridge log dir
     mkdir /data/vendor/port_bridge 0770 radio radio
     chmod 0770 /data/vendor/port_bridge
@@ -972,6 +986,21 @@ service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     disabled
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+
+service aodcommon-hal-1-0 /system/bin/hw/vendor.lge.hardware.aod.aodcommon@1.0-service
+    class hal
+    user system
+    group system
+
+service aodpower-hal-1-0 /system/bin/hw/vendor.lge.hardware.aod.aodpower@1.0-service
+    class hal
+    user system
+    group system
+
+service aodview-hal-1-0 /system/bin/hw/vendor.lge.hardware.aod.aodview@1.0-service
+    class hal
+    user system
+    group system
 
 service vendor.ril-daemon3 /vendor/bin/hw/rild -c 3
     class main
