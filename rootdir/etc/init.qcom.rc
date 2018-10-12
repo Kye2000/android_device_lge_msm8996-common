@@ -256,6 +256,25 @@ on boot
         chmod 0644 /data/misc/bluetooth/bdaddr
         chown bluetooth bluetooth /data/misc/bluetooth/bdaddr
 
+    # Lights HAL
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.aod.aodview@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.display.general@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.aod.aodcommon@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.display.uevent@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.light@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.display.tune@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.display.brightness@1.0-service
+    chown system:system /vendor/bin/hw/vendor.lge.hardware.aod.aodpower@1.0-service
+
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.aod.aodview@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.display.general@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.aod.aodcommon@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.display.uevent@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.light@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.display.tune@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.display.brightness@1.0-service
+    chmod 644 /vendor/bin/hw/vendor.lge.hardware.aod.aodpower@1.0-service
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -1194,6 +1213,9 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.andro
 #Set GPU Opengles version
 on property:vendor.opengles.version=*
     setprop ro.opengles.version ${vendor.opengles.version}
+
+# Set idle GPU to 133 Mhz
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 7
 
 #Set gpu available frequencies property
 on property:vendor.gpu.available_frequencies=*
