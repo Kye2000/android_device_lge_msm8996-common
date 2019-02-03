@@ -87,7 +87,22 @@ vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 
+# DRM and SEE - from oneplus3 - 8.0.0/OPR1.170623.032/1812060016
+vendor/bin/qseecomd
+vendor/lib64/libGPreqcancel.so
+vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libQSEEComAPI.so
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libqisl.so
+vendor/lib64/librpmb.so
+vendor/lib64/libssd.so
+vendor/lib/libQSEEComAPI.so
 
+# DRM Widevine - from marlin - PPR2.181005.003
+vendor/bin/hw/android.hardware.drm@1.1-service.widevine
+vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
+vendor/lib/libwvhidl.so
 
 # DSP
 lib/rfsa/adsp/libmorpho_image_stabilizer4_hvx_skel.so
